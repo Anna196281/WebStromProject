@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1">
+    <hl>珠峰培训</hl>
+    <ul>
+        <li>html+css免费课</li>
+        <li>javaScript免费课</li>
+        <li id="li3">javaScript正式课</li>
+        <li>HTML5移动端正式课</li>
+        <li>Node.js正式课</li>
+    </ul>
+</div>
+<script type="text/javascript">
+   //如果我想获取li3的上一个哥哥元素节点，我们先发，直接previousSibling获取的不一定是元素的，往上面在找多少级也不知道
+    var oDiv = document.getElementById("li3");
+
+
+  // 获取上一个"哥哥元素"节点 ->previousElementSibling(在IE6~8下不兼容)
+   //    function prev(curEle) {
+   //        //->判断当前的浏览器是否会兼容previousElementSibling,兼容的话直接用它,就不用自己写循环了
+   //        if (curEle.previousElementSibling) {
+   //            return curEle.previousElementSibling;
+   //        }
+   //        //->首先获取当前元素的上一个哥哥节点,判断是否为元素节点,如果是元素节点就直接的返回即可;如果不是元素节点,
+   //         则继续基于当前的基础找上一个哥哥节点...
+   //        //->由于不确定具体要找多少次,所有我们使用while循环
+   //        var pre = curEle.previousSibling;
+   //        while (pre && pre.nodeType != 1) {
+   //            pre = pre.previousSibling;
+   //        }
+   //        return pre;
+   //    }
+
+   //获取所有哥哥元素节点
+   function prevAll(ele){
+       var pre=ele.previousSiblings,ary=[];
+       while(pre){ //只要哥哥存在，就不断循环下去
+           if(pre.nodeType===1){//找到一个元素
+               ary.unshift(pre);//插入到上一个元素之前，顺序不能乱
+           }
+           pre=pre.previousSibling;//不断更新
+       }
+       return ary;
+   }
+   console.log(prevAll(document.getElementById("li3")));
+
+   //思考题？
+   //获取下一个弟弟元素节点
+   // 获取所有的弟弟元素节点
+   //获取所有的兄弟元素节点
+   //获取相邻的两个元素节点
+
+   /*   var i=0;
+    while(i<5){
+        if(i<=5){
+            i+=1;
+            i++;
+            continue;
+        }else{
+            break;
+            i+=2;
+        }
+    }
+*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>引用数据类型深入</title>
+</head>
+<body>
+<div id="div1" style="width: 100px;height: 100px;">珠峰培训</div>
+<script type="text/javascript">
+    //通过DOM方法获取的元素都是对象数据类型，用typeof检测返回的结果都是"object"，既然是对象数据类型，就存在相关的属性名和属性值
+
+    var oDiv=document.getElementById("div1");
+    oDiv.style.backgroundColor="red";
+    //style对应的堆内存改变了，则oDiv对象的这个大的堆内存也变了所以只有堆内存的改变才会影响元素的样式，style属性仍然是一个对象类型
+
+    var num=12;
+    var obj = {
+        name: "珠峰培训",
+        age: 6,
+        teacher: "周啸天"
+    };
+    //在刚开始加载页面的时候，浏览器会天生自带一个供我们当前JS代码执行的环境，我们把这个环境称为“栈内存”，也叫“作用域”
+    //而且开始加载页面的那个作用域称之为全局作用域(window),也是顶级作用域
+
+    //当开始加载js代码之前，首先会把当前全局作用域下带var 和function关键字的进行提取声明或定义，我们把这种机制叫做“预解释”
+    //也叫做（变量提升）
+    //在全局作用域下声明的变量叫做全局变量（公共变量）
+    //带 var关键字的是提前的声明  var num;就叫做声明
+    //声明：declare 就是var 变量名；只是声明没有赋值，默认的值是undefined
+    //定义：defined 给变量名赋值
+    //引用数据类型，先开辟一个内存空间，把属性名和属性值存起来，我们把这个用来存储值的内存空间叫做“堆内存”
+    //栈内存（作用域）：是用来从上到下执行js代码，和存储基本数据类型值。
+    //堆内存：用来存储引用数据类型里面的值
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

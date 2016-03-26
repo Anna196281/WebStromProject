@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*对象数据类型作用：
+     把描述同一个事物或同一个对象的属性和方法放在一个内存空间下，起到了分组作用，这样把不同事物之间的属性即使属性名一样
+     相互也不会发生冲突。我们把这种分组编写代码的模式叫做“单例模式”
+     //2、在单例模式中，我么把person1或者person2也叫做“命名空间”
+
+     */
+    var person1 = {
+        name: "张三",
+        age: 18
+    };
+    var person2 = {
+        name: "李四",
+        age: 28
+    };
+    //单例模式是一种项目开发中经常使用的模式，因为项目中我么可以使用单例模式来进行我么的“模块化开发”
+    //“模块化开发”：对于一个相对于大的项目，需要多人协作的开发的，我们一般情况下会根据当前项目的需求划分几个功能板块
+    //每个人负责一部分，同时开发，最后把每个人的代码进行合并
+
+    //公共模块
+    var utils = {
+        select: function () {
+
+        }
+    }
+    //页卡模块中的change-->实现选项卡切换
+    var tabRender = {
+        change: function () {
+            utils.select();//在自己的命名空间下调用其他的命名空间的方法
+        }
+    };
+
+
+    //搜索模块change --->搜索内容变化处理的
+    var searchRender = {
+        change: function () {
+         this.clickEven();//在自己的命名空间下调用自己的命名空间的方法
+        },
+        clickEven:function(){
+        }
+    };
+
+</script>
+</body>
+</html>

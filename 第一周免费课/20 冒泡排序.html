@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组的冒泡排序</title>
+</head>
+<body>
+<script type="text/javascript">
+    //冒泡排序、快速排序、插入排序
+    var ary = [12, 10, 13, 8, 4];
+    //target;[4,8,10,12]
+    //思想：当前项和后一项进行比较，如果当前项大于后一项，两者交换位置
+
+    /*
+     一共五个数，前后比较，第一项不用和自己比，最多比较四次。。我们最多比较的次数是ary.length-1次
+     第一轮结束，虽然没有达到最终目的，但是已经把当前最大的放在最后面 了
+     一共五个数，我们每一轮都将最大的放在后面，那我们放四个最大的实现排序了，也就是，最多比较ary.length-1
+     i控制轮数（最多ary.length-1轮），i从0开始的话
+     i=0是第一轮，比较ary.length-1-0次
+
+     当前项大于后一项，交换位置
+     var a=12;
+     var b=13;
+     var c=null;
+     c=a;
+     a=b;
+     b=c;
+     */
+
+    function sortAry(ary) {
+        //i代表是轮数,比较ary.length-1轮
+        for (var i = 0; i < ary.length - 1; i++) {
+            //j代表每一轮比较多少次，不用和自己比<ary.length-1，把之前房子最后的也排除再减去i
+            for (var j = 0; j < ary.length - 1 - i; j++) {
+                var cur = ary[j], next = ary[j + 1];
+                if (cur > next) {
+                    var temp = null;
+                    temp = ary[j];
+                    ary[j] = ary[j + 1];
+                    ary[j + 1] = temp;
+                }
+            }
+        }
+    }
+    var ary = [12, 10, 13, 8, 4];
+    sortAry(ary);
+    console.log(ary);
+
+
+    //    function sortAry(ary,type){
+    //        for(var i=0;i<ary.length-1;i++){
+    //            for(var j=0;j<ary.length-1-i;j++){
+    //                if(ary[j]>ary[j+1]){
+    //                    var temp=null;
+    //                     temp=ary[j];
+    //                    ary[j]=ary[j+1];
+    //                    ary[j+1]=ary[j];
+    //                }
+    //            }
+    //        }
+    //        type===1?ary.reverse():void 0;
+    //    }
+
+
+
+    //优化后程序
+//    function sortAry(ary) {
+//        //i代表是轮数,比较ary.length-1轮
+//        var flag = false;
+//        for (var i = 0; i < ary.length - 1; i++) {
+//            //j代表每一轮比较多少次，不用和自己比<ary.length-1，把之前房子最后的也排除再减去i
+//            for (var j = 0; j < ary.length - 1 - i; j++) {
+//                var cur = ary[j], next = ary[j + 1];
+//                if (cur > next) {
+//                    var temp = null;
+//                    temp = ary[j];
+//                    ary[j] = ary[j + 1];
+//                    ary[j + 1] = temp;
+//                    flag = true;
+//                }
+//            }
+//            if (flag) {
+//                flag = false;
+//            } else {
+//                break;
+//            }
+//
+//        }
+//    }
+//    var ary = [12, 10, 13, 8, 4];
+//    sortAry(ary);
+//    console.log(ary);
+
+
+</script>
+</body>
+</html>

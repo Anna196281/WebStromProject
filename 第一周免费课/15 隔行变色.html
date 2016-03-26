@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>隔行变色</title>
+    <style type="text/css">
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            font-family: inherit;
+            font-size: 20px;;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #list {
+            margin: 10px auto 0;
+            padding: 10px;
+            width: 500px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        #list li {
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .c1 {
+            background-color: #ddd;
+        }
+
+        .c2 {
+            background-color: azure;
+        }
+
+        .c3 {
+            background-color: chartreuse;
+        }
+
+    </style>
+</head>
+<body>
+<div id="list">
+    <ul>
+        <li>1111111111111111111111111</li>
+        <li>22222222222222222222222222</li>
+        <li>333333333333333333333333333</li>
+        <li>4444444444444444444444444444</li>
+        <li>1111111111111111111111111</li>
+        <li>22222222222222222222222222</li>
+        <li>333333333333333333333333333</li>
+        <li>4444444444444444444444444444</li>
+        <li>1111111111111111111111111</li>
+        <li>22222222222222222222222222</li>
+        <li>333333333333333333333333333</li>
+        <li>4444444444444444444444444444</li>
+        <li>1111111111111111111111111</li>
+        <li>22222222222222222222222222</li>
+        <li>333333333333333333333333333</li>
+        <li>4444444444444444444444444444</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    /*原理：操作所有的li,按照奇偶行的规律，改变他的calss样式的属性值，奇数行是c1, 偶数行是c2*/
+    /*通过元素的标签名，获取一组元素*/
+    // document.getElementsByTagName("元素的标签名");在整个文档中（获取的范围，上下文），我们通过元素的标签名来获取一组元素
+    //var oLis=document.getElementsByTagName("li");获取整个文档中所以的li,他是一个集合，我们把这个集合叫做类数组
+    //索引（属性名）：代表当前是第几个元素的位置下标，索引是从0开始的，索引为0代表第一个li,索引为1代表第二个li
+    //length:代表集合的长度，或者是当前获取了多少个li;
+    //通过DOM方法获取的类数组还可以用.item(索引）来获取某一个
+    var oList = document.getElementById("list");
+    var oLis = oList.getElementsByTagName("li");
+    for (var i = 0; i < oLis.length; i++) {
+        var oLi = oLis[i];//每一次循环的时候在类数组中把对应的li取出来
+        i % 2 === 0 ? (oLi.className = "c1",oLi.zhufeng="c1"): (oLi.className = "c2",oLi.zhufeng="c2");
+        //因为每一个li都是对象数据类型的，那么应用这个思想，我们给每一个li增加一个自定义的属性名，属性值就是当前li的className的值
+       oLi.onmouseover=function(){
+           this.className="c3";
+       }
+        oLi.onmouseout=function(){
+            //原来是啥，就是啥
+            var old=this.zhufeng;
+            this.className=old;
+        }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //快速排序思想：在数组中找一个基准点，一般把基准点选为数组中间的一项，中间项Math.floor（ary.length/2) 向下取整
+    // 然后拿基准点和数组中的其他项进行比较，比基准点小的放在左边，比基准点大的放在右边。
+    // 以后的每一边都重复上述的操作，直到当前这一边只有一项的时候停止处理
+    function quickSory(ary) {
+        //如果传递过来的只有一项，不需要再拆了，直接把这一项的数组返回即可
+        if (ary.length == 1) {
+            return ary;
+        }
+        var pointIndex = Math.floor(ary.length / 2);//找到基准点的索引
+        var pointValue = ary.splice(pointIndex, 1);//在数组中把基准点删除删除这一项，并把基准点的值获取
+        //拿基准点的值和数组中每一项进行比较，把小于基准点的放在左边，把大于基准点的放在右边
+        var left = {};
+        var right = {};
+        for (var i = 0; i < ary.length; i++) {
+            var cur = ary[i];
+            cur< pointValue ? left.push(cur) : right.push(cur);
+        }
+        quickSory(left).concat([pointValue], quickSory(right));
+    }
+
+
+    var ary = [2, 5, 3, 7, 6, 9, 1];
+    var res = quickSory(ary);
+    console.log(res);
+
+</script>
+</body>
+</html>

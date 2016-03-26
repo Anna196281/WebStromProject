@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //js中检测数据类型的方式:
+    //typeof运算符
+    //instanceof 运算符
+    //constructor
+    //Object.prototype.toString.call()
+
+    //typeof用来检测数据类型的:typeof 要检测的值
+    // 返回值：是一个字符串，包含了数据类型字符"number"  "string" "boolean”"undefined"  "object"  "function"
+
+     typeof null // 的结果是"object"
+    //typeof 的局限性：不能具体的检查object下细分的类型，检查这些返回的都是"object"
+    console.log(typeof"zhufeng");//"stirng"
+
+    var num2=12;
+    console.log(typeof num2);//把num2代表的值进行检测，检测是什么数据类型的  ===>"number"
+
+
+    //腾讯面试题：
+    console.log(typeof typeof typeof typeof[]); //返回值"string"  出现两个和两个以上的typeof时，最终结果都是"string"
+    //typeof[]===>"object"
+    //typeof"object"===>"string"
+    //typeof"string"===>"string"
+    //typeof"stirng"===>"string
+
+
+
+</script>
+</body>
+</html>

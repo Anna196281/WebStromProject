@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+    1、动态创建一个元素标签
+    document.createElement("div")动态创建一个div元素对象,参数是标签名字
+     */
+    var oDiv=document.createElement("div");
+    oDiv.id="div1";
+    oDiv.style.width="200px";
+    oDiv.style.height="100px";
+    oDiv.style.border="2px solid red";
+    //把这个对象添加到我们的页面中
+
+    //2、appendChild:把这个元素添加到指定的容器的末尾.appendChild(元素) 由父级调用
+    document.body.appendChild(oDiv);
+
+    var oP=document.createElement("p");
+    oP.id="p1";
+    oP.style.width="200px";
+    oP.style.height="100px";
+    oP.style.border="2px solid green";
+    document.body.appendChild(oP);
+
+    //3、insertBefore :把新的元素newEle添加到老的元素oldEle之前
+    //oldEle.parentNode.insertBefore(newEle,oleEle);
+    document.body.insertBefore(oP,oDiv);
+
+    //4、removeChild：删除元素
+    oDiv.parentNode.removeChild(oDiv);
+
+    //5、cloneNode:克隆
+    var clo=oP.cloneNode(true);//克隆元素 true:把元素里面的子子孙孙都克隆，默认是false,只克隆当前的
+    clo.style.backgroundColor="yellow";
+    document.body.appendChild(clo);
+
+    //6、replaceChild 替换
+    var dd=document.createElement("div");
+    dd.style.width="200px";
+    dd.style.height="100px";
+    dd.style.border="2px solid blue";
+    oP.parentNode.replaceChild(dd,oP);
+
+    //增加自定义属性
+    /*1、把clo看做一个对象数据类型，我们在他开辟的空间中增加一个属性名zhufeng
+    clo.zhufeng
+    clo["zhufeng"]
+    */
+    //7、setAttribute:设置元素的属性（包含自定义属性）
+    //getAttribute
+    //removeAttribute
+    //修改html元素的结构（使用这种方法在html中容易体现出来
+    /*clo.setAttribute("zhufeng","珠峰");
+    console.log(clo.getAttribute("zhufeng"));
+    clo.removeAttribute("zhufeng");*/
+    //在IE6---8下这个方法不能修改class属性，在低版本浏览器需用className.
+
+
+
+</script>
+</body>
+</html>

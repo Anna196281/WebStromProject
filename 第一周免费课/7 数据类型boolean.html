@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //boolean:true fa  lse
+    // !:一个叹号是取反，首先将值转换为布尔类型的，然后再取反
+    //console.log(!3);//先把3转换为boolean,再取反，值为false
+    // !!：两个叹号，将其他的数据类型，转换为boolean类型，相当于取反再取反
+    //数据类型转换的规则:
+    //1、如果只有一个值，判断这个值是真还是假，遵循：只有0 NaN ""  null undefined 这五个是假的，其余的都是真
+    //console.log(Boolean("zhufeng"));返回值是true
+    //console.log(!!"zhufeng");返回值是true
+    //2、两个值比较是否相等，遵循这个规则：
+    // val1==val2 两个值可能不是同一个数据类型的，如果是==比较的话，会进行默认的数据类型转换
+    /*
+        1)对象==对象  永远不相等 []== []   ====>false
+        2）对象==字符串  先将对象转换为字符串（调用toString的方法），然后再进行比较
+               []转换为字符串"" [].toString  ===>""     ""==""     ====>true
+               {}转换为字符串   {}.toString  =====>[object Object]'
+        3)对象==布尔类型  对象先转换为字符串（toString),然后把字符串再转换为数字（Number  ""代表0)
+        ,布尔类型也转换为数字（true 代表1，false 0)
+        最后让两个数字比较
+        4）对象==数字  对象先转换为字符串（toString),然后把字符串再转换为数字（Number  ""代表0)
+        5）数字==布尔  布尔转换为数字   2==true   ====>false
+        6）数字==字符串  字符串转换为数字
+        7）字符串==布尔   都转换为数字
+        8）null==undefined  结果是true
+        9) null或者undefined 和其他任何类型比较都不相等
+
+        //3、除了==是比较，===也是比较（绝对比较）
+        val1===val2  如果数据类型不一样肯定不相等  unll===undefined   ===>false  因为数据类型不一样
+    * */
+
+</script>
+</body>
+</html>

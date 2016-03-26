@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>99乘法表</title>
+    <style type="text/css">
+      body,div,ul,li,span{
+          margin:0;
+          padding:0;
+          font-size: 20px;
+      }
+        ul,li{
+            list-style: none;;
+        }
+        #tab {
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin-left: -450px;
+            margin-top:-135px;
+            width:900px;
+            height: 270px;
+            border:1px solid red;
+            border-radius: 10px;
+        }
+        #tab li{
+            height:30px;
+            line-height: 30px;
+        }
+        #tab li span{
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            text-align: center;
+        }
+       .c1{
+            background-color: #00b3ee;
+        }
+        .c2{
+            background-color: yellow;
+        }
+        .c3{
+            background-color: #cc0000;
+        }
+
+    </style>
+</head>
+<body id="tab">
+<ul>
+    <li>
+        <span>1*1=1</span>
+    </li>
+    <li>
+        <span>1*2=2</span>
+        <span>2*2=4</span>
+    </li>
+</ul>
+<script type="text/javascript">
+    var oTab=document.getElementById("tab");
+    var str="";
+    str+="<ul>";
+    for(i=1;i<=9;i++){
+        str+="<li>"
+        for(j=1;j<=i;j++){
+            str+="<span>";
+            str+=j+"*"+i+"="+j*i;
+            str+="</span>";
+        }
+        str+="</li>";
+    }
+    str+="</ul>";
+    oTab.innerHTML=str;
+
+    var oLis=oTab.getElementsByTagName("li");
+    for(var i=0;i<=oLis.length;i++){
+        switch (i%3){
+            case 0:
+                    oLis[i].className="c1";
+                break;
+            case 1:
+                    oLis[i].className="c2";
+                break;
+            case 2:
+                    oLis[i].className="c3";
+                break;
+
+        }
+    }
+</script>
+
+</body>
+</html>

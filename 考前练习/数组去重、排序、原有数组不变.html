@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //    var ary = [12, 23, 23, 12, 24, 34, 34, 23, 34, 5, 21, 2];
+    //    var obj = {};
+    //    for (var i = 0; i < ary.length; i++) {
+    //        var cur = ary[i];
+    //        if (obj[cur] == cur) {
+    //            ary.splice(i, 1);
+    //            i--;
+    //            continue;
+    //        }
+    //        obj[cur] = cur;
+    //        function sortAry(ary) {
+    //            for (var i = 0; i < ary.length - 1; i++) {
+    //                for (var j = 0; j < ary.length - 1 - i; j++) {
+    //                    var cur = ary[j], next = ary[j + 1];
+    //                    if (cur > next) {
+    //                        var temp = null;
+    //                        temp = ary[j];
+    //                        ary[j] = ary[j + 1];
+    //                        ary[j + 1] = temp;
+    //                    }
+    //                }
+    //            }
+    //            return ary;
+    //        }
+    //
+    //    }
+    var ary = [12, 23, 23, 12, 24, 34, 34, 23, 34, 5, 21, 2];
+    var obj = {};
+    for (var i = 0; i < ary.length; i++) {
+        var cur = ary[i];
+        obj[cur] = cur;
+    }
+    var newAry = [];
+    for (var key in obj) {
+        newAry[newAry.length] = obj[key];
+    }
+    console.log(obj);
+
+
+</script>
+</body>
+</html>

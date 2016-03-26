@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #div1{
+            height:100px;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="../css/index.css"/>
+</head>
+<body>
+<!--将CSS引入到页面中的几种方式 1、行内样式-->
+<!--//2、内嵌式（将CSS样式写在style标签块里面，放在head里面）-->
+<!--//3、外链式（只是将内嵌式中的CSS样式放到外面一个单独的样式文件中了）-->
+    <div id="div1" style="width:100px;"></div>
+<!--
+   将JS引入到页面中的几种方式
+   1、行内引用（不推荐），安全性能低
+   2、内嵌式:将JS代码写在script脚本框之间
+   3、外链式：将js代码写在外面文件中，
+   细节：1、在外链式中，script脚本块中间不可以写js脚本代码，写了也不执行
+   细节：2、我们通常将js放在body的最后面，原因：html页面是从上到下加载的，js通常获取html标签给予动态操作效果，
+   所以需要先加载html标签再加载我们的Js
+
+-->
+<script type="text/javascript">
+    alert("欢迎大家来到珠峰培训！");
+</script>
+<script type="text/javascript" src="../js/index.js">
+    alert("我是外链式的代码");
+</script>
+</body>
+</html>

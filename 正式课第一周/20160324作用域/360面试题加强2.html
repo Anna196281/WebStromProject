@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var num = 1;//num=2 num=4  num=5
+    var obj = {
+        num: 2, //num=7
+        fn: (function () {
+            this.num = num + 1;//this 是window num+1=2
+            num = 2; //全局下的num=2
+            return function () {
+                this.num = num + 2;      //fn()--->this 是window下 num=2+2=4
+                                          // obj.fn()--->this.num是私有obj.num=2  ,但是num是全局下的num=5
+                                          // this.num(私有)=num(全局）5+2=7，此时obj.num=7
+
+                num += 1;                 //fn()-->window 下的  num+1=5
+                                          //obj.fn()--->window下的 num+1=5+1=6
+
+                console.log(num);//fn()--->5
+                                  //obj.fn()---->6
+            }
+        })()
+    };
+    var fn = obj.fn;//return后面的一堆东西
+    fn();//执行return后面的一堆东西  ====>5
+    obj.fn();//执行return后面的一堆东西===>6
+    console.log(window.num, obj.num);//window.num--->5    obj.num---->7
+
+</script>
+</body>
+</html>

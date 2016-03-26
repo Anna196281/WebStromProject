@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var num = 7; //num=14  num=17  num=6  num=30 num=36  num=42
+    var obj = {
+        num: 8, //num=40
+        fn: (function () { //没有参数接收，白传
+            this.num *= 2;   //this-->window  num=7  num*2=14
+            num += 3;   //num 是全局下的 14  ---->num+=3=17
+            num = 6;   //全局下的 num=6
+            return function () {
+                this.num *= 5;  //this 是obj    obj.num=8   num*5=40
+                num += 6;//全局下num=36  num+6=42
+                console.log(num);// num=42
+            }
+        })(num) // sum-->7
+    }
+    var fn = obj.fn;//相当于return后面的一堆东西
+    fn();//执行return后面的一堆   ====>36
+    obj.fn();//执行return后面的一堆   ====>42
+    console.log(window.num,obj.num); //window.num=42     obj.num=40
+
+
+
+
+
+//    var num = 1;
+//    var obj = {
+//        num: 2,
+//        fn: (function () {
+//            this.num = num + 1;
+//            num = 2;
+//            return function () {
+//                this.num = num + 2;
+//                num += 1;
+//                console.log(num);
+//            }
+//        })()
+//    };
+//    var fn = obj.fn;
+//    fn();
+//    obj.fn();
+//    console.log(window.num, obj.num);
+
+
+    </script>
+</body>
+</html>

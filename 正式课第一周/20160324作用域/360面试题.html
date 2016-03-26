@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var num = 20;
+    var obj = {
+        num: 30,
+        fn: (function (num) {
+            //形参num相当于num=20
+            this.num *= 3;//自执行函数this 是 window
+            num += 15;
+            var num = 45;//在函数执行的时候，如果在声明变量之前有和变量名字相同的形参，那么有var和没有var是一样的，
+                                               // 代码执行到这的时候只是一个赋值操作
+            return function () {
+                this.num *= 4;
+                num += 20;
+                console.log(num);
+            }
+        })(num)
+    }
+    var fn = obj.fn;
+    fn();
+    obj.fn();
+    console.log(window.num,obj.num);
+</script>
+</body>
+</html>

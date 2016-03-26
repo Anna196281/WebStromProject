@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> 开关灯效果</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="oBodyexe" style="background-color: white">
+<script type="text/javascript">
+    //首先获取body
+    //document.getElementById("元素标签的ID值");在整个文档中，通过元素的ID获取一个元素
+    //document 文档  称之为上下文，限定我们获取元素的范围
+    var oBody = document.getElementById("oBodyexe");
+    oBody.onclick = function () {
+        var bg = oBody.style.backgroundColor;
+        if (bg === "white") {
+            this.style.backgroundColor = "blue";
+        } else if (bg === "blue") {
+            this.style.backgroundColor = "red";
+        } else if (bg === "red") {
+            this.style.backgroundColor = "green";
+        } else {
+            this.style.backgroundColor = "White";
+        }
+
+    }
+
+    //在绑定的事件当中，this就是当前我们点击的这个元素
+    //让body有一个可以点击的功能
+    //元素.onclick=funcion(){
+    //
+    // }
+    //给一个元素绑定点击事件
+    //点击的时候执行我们换颜色的操作
+    //每一次点击的时候都要先获取当前的背景颜色，根据颜色让背景变成其他颜色
+    //元素.style.backgroundColor获取的“行内样式”
+
+</script>
+</body>
+</html>

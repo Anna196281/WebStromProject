@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    //获取当前自己电脑的时间
+    var time=new Date();
+    console.log(time);//时间格式数据（对象数据类型的）
+    //2015年05月24日 星期日 15时31分27秒，变成这个时间格式字符串
+
+
+    function formatTime(){
+        var time=new Date();
+        var year=time.getFullYear();
+        var month=time.getMonth()+1;//0-11代表我们的1-12月
+        var day=time.getDate();
+        var week=time.getDay();//0-6代表周日--周六
+        var wStr="日一二三四五六",week=wStr.charAt(week);
+        var hours=time.getHours();
+        var minutes=time.getMinutes();
+        var seconds=time.getSeconds();
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

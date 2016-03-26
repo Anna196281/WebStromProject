@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <form action="">
+            <input type="radio"name="gender" value="1" checked/>男
+            <input type="radio" name="gender" value="0"/>女
+        </form>
+    </ul>
+
+</div>
+<script type="text/javascript">
+    //DOM:document object model 文档对象模型
+    //DOM就是描述整个html页面中节点关系的图谱
+    //在DOM中，提供了很多的获取元素的方法和之间关系的属性以及操作这些元素的方法
+    /*1.获取页面中元素的方法
+    a)document.getElementById("元素的ID")在整个文档中，通过元素的ID获取到这个元素对象（获取的是一个元素）
+    注意：如果页面中ID重复了，那么这个方法默认只获取第一个元素。
+          在IE6 和IE7中会把表单元素（input)的name属性值当做ID来使用
+          在IE6 和IE7中不区分ID的大小写
+          如果没有获取到，返回的结果是null.
+          if(oDiv){}类似于这样的判断以后会经常出现在我们的脚本中
+    项目实战注意：不要让表单元素的name和其他元素的ID重复
+                  不要用ID的大小写来区分我们的不同元素
+                  我们可以直接用元素的ID来代表当前这个元素对象（不推荐）
+
+      2、通过元素的标签名，来获取一组元素（是多个）
+      获取的是一个对象数据类型结果，并且是一个类数组（以数字作为索引，索引从0开始，逐级递增，索引代表的是当前对应的某一个元素，
+      有个叫做length的属性代表获取的个数）
+      document称为上 下文（context),就是我们自己可以限定当前获取元素的范围，getElementById的上下文只能是document
+      b）document.getElementByTagName("元素标签名")在整个文档中，通过元素的标签名获取一组元素
+
+     3、context.getElementsByName()通过元素name属性的值获取一组属性
+     在IE浏览器下只对表单元素起作用，这个方法只应用于获取具有同样name的表单元素
+    */
+
+    //4、context.getElementsByClassName()通过元素的类名(class值）是项目中最常用的方法，但是这个方法不兼容，在IE6--8中会报错
+    //获取多个的这几个方法，即使获取的只有一个，也是类数组，也是一个集合，如果想用其中的一个，也要通过索引拿出来用
+
+    /*5、
+    document.documentElement//获取HTML元素
+    document.body//获取body元素
+    */
+    //获取浏览器高度和宽度，计算位置的时候应用比较多
+    var curWidth=document.documentElement.clientWidth || document.body.clientWidth;//兼容所有浏览器的获取当前屏幕的宽度
+    //clientWidth 客户宽度
+    var height=document.documentElement.clientHeight||document.body.clientHeight;//兼容所有浏览器的获取当前屏幕的高度
+
+    /*
+    6、 在移动端我们获取元素常用的方法（IE6~8下不兼容）
+         document.querySelector()获取一个
+         document.querySelectorAll()获取多个  类数组集合
+
+         var oDIV=document.querySelector("#tab");
+         通过Id获取
+         jquery:"#id"
+          类名：".class"  "li"
+         var oLis=document.querySelectorAll("#tab li");
+
+        querySelector、 jQuery中的选择器参考是css选择器的规格
+     */
+
+</script>
+</body>
+</html>
